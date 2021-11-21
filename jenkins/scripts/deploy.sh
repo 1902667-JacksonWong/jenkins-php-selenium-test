@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 set -x
-docker container stop
+docker kill $(docker ps -q)
 docker run -d -p 80:80 --name my-apache-php-app3 -v "$PWD":/usr/src php:7.2-apache
 sleep 1
 set +x
